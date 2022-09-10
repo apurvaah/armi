@@ -1,9 +1,19 @@
 import './style.css'
+import {useNavigate } from "react-router-dom";
 
 const Home = () => {
+
+    const navigate = useNavigate();
+
+    const onClick = async (e) => {
+        console.log("Start Game Button was clicked") // Check to see if button is working
+
+        navigate('/game');
+    }
+
     return (
         <div>
-            <div id="header">
+            <div id="homePageTitle">
                 <h1>Play Me!</h1>
             </div>
 
@@ -13,7 +23,7 @@ const Home = () => {
                 <h1 id="header"></h1>
                 <div id="text">
                 </div>
-                <button class="text-white button" id="start-button" type="button">Start Game</button>
+                <button class="text-white button" id="start-button" type="button" onClick={onClick}>Start Game</button>
                 <div id="result"></div>
             </div>
         </div>

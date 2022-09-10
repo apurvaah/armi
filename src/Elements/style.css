@@ -32,11 +32,11 @@ body {
     font-weight: bold;
 }
 
-#HomePageTitle {
+#homePageTitle {
     text-align: center;
     word-wrap: break-word;
     padding: 5px;
-    text-shadow: 2px 3px white;
+    color: white;
     font-family: 'Staatliches', cursive;
 }
 
