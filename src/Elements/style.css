@@ -32,15 +32,27 @@ body {
     font-weight: bold;
 }
 
-#HomePageTitle {
+#homePageTitle {
     text-align: center;
     word-wrap: break-word;
     padding: 5px;
-    text-shadow: 2px 3px white;
+    color: white;
     font-family: 'Staatliches', cursive;
 }
 
 #container {
+    position: fixed;
+    top: 15%;
+    left: 25%;
+    right: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#qr-container{
     position: fixed;
     top: 15%;
     left: 25%;
