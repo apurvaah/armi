@@ -32,6 +32,14 @@ body {
     font-weight: bold;
 }
 
+#HomePageTitle {
+    text-align: center;
+    word-wrap: break-word;
+    padding: 5px;
+    text-shadow: 2px 3px white;
+    font-family: 'Staatliches', cursive;
+}
+
 #container {
     position: fixed;
     top: 15%;
