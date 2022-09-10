@@ -1,14 +1,20 @@
 import './style.css'
 
 const QRScan = () => {
+    let dict = { a:"img1" , b:"img2" }
+
+    let img_key =  Object.keys(dict)
+    let result_img = Math.random()* img_key.length
+
     return (
         <div>
             <div id="homePageTitle">
                 <h1>Scan this QR Code to win rewards!</h1>
+                
             </div>
 
             <div id="qr-container">
-                <image></image>
+            <img src= "/BLNT_IMG_HACKATHON.png" alt="Reward" id = "qrimage" align = "center" width="500" height="600"/>
             </div>
         </div>
     );
