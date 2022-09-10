@@ -11,6 +11,12 @@ const Home = () => {
         navigate('/game');
     }
 
+    const onClickReward = async (e) => {
+        console.log("Rewards Button was clicked") // Check to see if button is working
+
+        navigate('/qrscan');
+    }
+
     return (
         <div>
             <div id="homePageTitle">
@@ -24,6 +30,7 @@ const Home = () => {
                 <div id="text">
                 </div>
                 <button class="text-white button" id="start-button" type="button" onClick={onClick}>Start Game</button>
+                <button class="text-white button" id="start-button" type="button" onClick={onClickReward}>Reward Me</button>
                 <div id="result"></div>
             </div>
         </div>
