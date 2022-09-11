@@ -14,11 +14,11 @@ const Reward = () => {
             method: "POST",
             headers: { "Content-Type": "application/json", "Accept": "application/json" },
             body: {}  // Update based on Flask
-          }).then(response => response.json())
+          }).then(response => response.text())
             .then(data => {
                 console.log("ON REWARDS GETTING DATA")
-                console.log(data.reward)
-                setReward(data.reward);
+                console.log(data)
+                setReward(data);
             })
 
         setShowReward(true);
