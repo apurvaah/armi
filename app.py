@@ -24,7 +24,8 @@ def print_rewards():
 
 @app.route("/quiz")
 def loadJson():
-    data = json.load(open("./build/quiz.json"))
+    file = open("./build/quiz.json")
+    data = json.load(file)
     return json.dumps(data)
 
 @app.route('/send-rewards-data',methods=['POST'])
