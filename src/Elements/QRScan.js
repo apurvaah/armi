@@ -14,7 +14,7 @@ const QRScan = () => {
             </div>
 
             <div id="qr-container">
-            <img src= "/BLNT_IMG_HACKATHON.png" alt="Reward" id = "qrimage" align = "center" width="500" height="600"/>
+            <img src= "/rewards_hack.png" alt="Reward" id = "qrimage" align = "center" width="500" height="600"/>
             </div>
         </div>
     );
