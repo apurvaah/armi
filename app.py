@@ -33,7 +33,6 @@ def loadJson():
     return json.dumps(data)
 
 @app.route('/send-rewards-data',methods=['POST'])
-@cross_origin()
 def sendRewardsData():
     marks_and_money = request.get_json()
     print("marksand money")
