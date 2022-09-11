@@ -7,6 +7,7 @@ import {
 import Home from './Elements/Home'
 import Dummy from './Elements/Dummy';
 import QRScan from './Elements/QRScan';
+import Reward from './Elements/Rewards';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/game" element={<Dummy />} />
           <Route exact path="/qrscan" element={<QRScan />} />
+          <Route exact path="/rewardme" element={<Reward />} />
         </Routes>
       </BrowserRouter>
     </>
