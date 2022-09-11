@@ -23,6 +23,7 @@ def print_rewards():
     return random_rewards(int(math.floor(prob*100)))
 
 @app.route('/send-rewards-data',methods=['POST'])
+@cross_origin()
 def sendRewardsData():
     marks_and_money = request.get_json()
     print("marks and money")

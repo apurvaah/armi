@@ -209,7 +209,7 @@ const QuizHome = () => {
   return (
     <>
       <div className="App">
-        <h2>{timer}</h2>
+        <h2 id="timer">{timer}</h2>
       </div>
       {/* Welcome Page */}
       <Start

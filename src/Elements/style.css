@@ -1,23 +1,16 @@
-*,
- ::before,
- ::after {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-    background-color: lightblue;
+    background-color: white;
 }
 
-.timer {
+#timer {
     float: right;
     margin-right: 24px;
     font-size: 1.8em;
-    color: white;
-    text-shadow: 2px 3px blueviolet;
+    color: black;
+    text-shadow: 1px 1px gray;
     font-weight: bold;
 }
 
@@ -25,7 +18,6 @@ body {
     text-align: center;
     word-wrap: break-word;
     padding: 5px;
-    color: white;
     font-family: 'Staatliches', cursive;
 }
 
