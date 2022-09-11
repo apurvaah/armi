@@ -108,7 +108,7 @@ const QuizHome = () => {
   useEffect(() => {
     fetch('/quiz')
       .then(res => res.json())
-      .then(data => setQuizs(data))
+      .then(data => {console.log("----------------------");console.log(data);setQuizs(data);})
   }, []);
 
   // Set a Single Question
