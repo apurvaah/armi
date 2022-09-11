@@ -1,6 +1,8 @@
 import os
 from flask import Flask
 from flask_cors import CORS, cross_origin
+import math
+from backend.dataset import *
 
 app = Flask(__name__, static_folder='./build', static_url_path='/')
 
@@ -14,6 +16,11 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route("/")
 def hello_world():
     return app.send_static_file('index.html')
+
+@app.route("/rewards")
+def print_rewards():
+    prob = score_calculation(75,25)
+    return random_rewards(int(math.floor(prob*100)))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))
