@@ -22,20 +22,10 @@ def print_rewards():
     prob = score_calculation(75,25)
     return random_rewards(int(math.floor(prob*100)))
 
-@app.route("/quiz")
-def loadJson():
-    file = open("quiz.json")
-    print("------------File----------------")
-    print(file)
-    data = json.load(file)
-    print("------------DATA----------------")
-    print(data)
-    return json.dumps(data)
-
 @app.route('/send-rewards-data',methods=['POST'])
 def sendRewardsData():
     marks_and_money = request.get_json()
-    print("marksand money")
+    print("marks and money")
     print(marks_and_money)
     marks = marks_and_money.get("marks")
     print(marks)
@@ -46,7 +36,7 @@ def sendRewardsData():
     reward = random_rewards(int(math.floor(prob*100)))
     print("Reward-----------------------")
     print(reward)
-    return json.dumps({'reward':reward})
+    return reward
 
 reward_string = "Better Luck Next Time"
 

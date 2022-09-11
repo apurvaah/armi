@@ -15,6 +15,9 @@ const QuizHome = () => {
   // The state for our timer
   const [timer, setTimer] = useState('00:00:00');
 
+  // For storing reward
+  const [reward, setReward] = useState();
+
   //mocking gas money value
   const gasMoney = (Math.random() * (37)) + 3
 
@@ -188,65 +191,25 @@ const QuizHome = () => {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify({ "marks": marks, "gasMoney": gasMoney })  // Update based on Flask
-    }).then(response => response.json()
-      // fetch("/update-rewards", {     // will need this to connect to backend to parse database
-      // method: "POST",
-      // headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      // body: JSON.stringify({ "reward": response.json().reward })  // Update based on Flask
-      // })
-    ).then(data => fetch("/update-rewards", {     // will need this to connect to backend to parse database
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({ "reward": data.reward })  // Update based on Flask
-      }))
+    }).then(response => response.text())
+    .then(data => {
+      setReward(data)
+      doNext()
+    })
   }
 
-  // Start Over
-  const startOver = () => {
-    setShowStart(false);
-    setShowResult(false);
-    setShowQuiz(true);
-    setCorrectAnswer('');
-    setSelectedAnswer('');
-    setQuestionIndex(0);
-    setMarks(0);
-    const wrongBtn = document.querySelector('button.bg-danger');
-    wrongBtn?.classList.remove('bg-danger');
-    const rightBtn = document.querySelector('button.bg-success');
-    rightBtn?.classList.remove('bg-success');
-
-    {/* Welcome Page */ }
-    <Start
-      startQuiz={startQuiz}
-      showStart={showStart}
-    />
-
-    {/* Quiz Page */ }
-    <Quiz
-      showQuiz={showQuiz}
-      question={question}
-      quizs={quizs}
-      checkAnswer={checkAnswer}
-      correctAnswer={correctAnswer}
-      selectedAnswer={selectedAnswer}
-      questionIndex={questionIndex}
-      nextQuestion={nextQuestion}
-      showTheResult={showTheResult}
-    />
-
-    {/* Result Page */ }
-    <Result
-      showResult={showResult}
-      quizs={quizs}
-      marks={marks}
-      startOver={startOver} />
+  const doNext = async (e) => {
+     await fetch("/update-rewards", {     // will need this to connect to backend to parse database
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ "reward": reward })  // Update based on Flask
+      })
   }
 
   return (
     <>
       <div className="App">
         <h2>{timer}</h2>
-        {<button onClick={onClickReset}>Reset</button>}
       </div>
       {/* Welcome Page */}
       <Start
