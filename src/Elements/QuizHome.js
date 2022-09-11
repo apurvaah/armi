@@ -104,7 +104,7 @@ const QuizHome = () => {
   const [showResult, setShowResult] = useState(false);
 
 
-  var responseClone = Response()
+  var responseClone = new Response()
   // Load JSON Data
   useEffect(() => {
     fetch('/quiz')
