@@ -110,7 +110,7 @@ const QuizHome = () => {
     fetch('/quiz')
       .then(res => {
         responseClone = res.clone(); // 2
-        return res.json();
+        res.json();
     })
       .then(data => {console.log("----------------------");console.log(data);setQuizs(data);})
   }, function (rejectionReason) { // 3
