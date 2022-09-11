@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, jsonify, request, json
 from flask_cors import CORS, cross_origin
 import math
 from backend.dataset import *
@@ -21,6 +21,44 @@ def hello_world():
 def print_rewards():
     prob = score_calculation(75,25)
     return random_rewards(int(math.floor(prob*100)))
+
+@app.route("/quiz")
+def loadJson():
+    data = json.load(open("./build/quiz.json"))
+    return json.dumps(data)
+
+@app.route('/send-rewards-data',methods=['POST'])
+@cross_origin()
+def sendRewardsData():
+    marks_and_money = request.get_json()
+    print("marksand money")
+    print(marks_and_money)
+    marks = marks_and_money.get("marks")
+    print(marks)
+    cash = marks_and_money.get("gasMoney")
+    print(cash)
+    prob = score_calculation(marks,cash)
+    print(prob)
+    reward = random_rewards(int(math.floor(prob*100)))
+    print("Reward-----------------------")
+    print(reward)
+    return json.dumps({'reward':reward})
+
+reward_string = "Better Luck Next Time"
+
+@app.route('/update-rewards',methods=['POST'])
+@cross_origin()
+def updateRewardsData():
+    reward = request.get_json().get("reward")
+    print("Reward ---------------------")
+    print(reward)
+    reward_string = reward
+    return json.dumps({'reward':reward_string})
+
+@app.route('/get-reward',methods=['POST'])
+@cross_origin()
+def getRewardsData():
+    return json.dumps({'reward':reward_string})
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=False, port=os.environ.get('PORT', 80))

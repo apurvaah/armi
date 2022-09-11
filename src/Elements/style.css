@@ -9,18 +9,7 @@ body {
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-    background-color: rgb(24, 20, 20);
-}
-
-.high-score {
-    float: left;
-    font-size: 1.8em;
-    text-shadow: 1px 1px rgb(68, 68, 68);
-    font-family: 'Staatliches', cursive;
-}
-
-#high-scores-title {
-    text-shadow: 2px 3px blueviolet;
+    background-color: lightblue;
 }
 
 .timer {
@@ -85,7 +74,7 @@ body {
 
 /* buttons */
 
-.button,
+/* .button,
 button {
     display: flex;
     flex-direction: column;
@@ -108,7 +97,7 @@ button {
 #back-btn {
     color: white;
     text-decoration: none;
-}
+} */
 
 
 /* result style */
@@ -128,10 +117,10 @@ button {
     text-decoration: underline overline red;
 }
 
-button:hover,
+/* button:hover,
 .button:hover {
     opacity: 0.9;
-}
+} */
 
 .hide {
     display: none;
