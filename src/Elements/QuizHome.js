@@ -108,9 +108,9 @@ const QuizHome = () => {
     fetch('/quiz')
       .then(res => {
         console.log("-------------------------") // 2
-        res.json();
+        const r = res.json();
         console.log("Able to parse json maybe")
-        console.log(res.json())
+        console.log(r)
     })
       //.then(data => {console.log("----------------------");console.log(data);setQuizs(data);})
   }, []);
