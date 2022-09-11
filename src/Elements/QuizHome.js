@@ -104,12 +104,13 @@ const QuizHome = () => {
   const [showResult, setShowResult] = useState(false);
 
 
+  var responseClone = Response()
   // Load JSON Data
   useEffect(() => {
     fetch('/quiz')
       .then(res => {
-        responseClone = response.clone(); // 2
-        return response.json();
+        responseClone = res.clone(); // 2
+        return res.json();
     })
       .then(data => {console.log("----------------------");console.log(data);setQuizs(data);})
   }, function (rejectionReason) { // 3
