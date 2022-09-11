@@ -103,29 +103,24 @@ const QuizHome = () => {
   const [showQuiz, setShowQuiz] = useState(false);
   const [showResult, setShowResult] = useState(false);
 
-
-  var responseClone = new Response()
   // Load JSON Data
   useEffect(() => {
     fetch('/quiz')
       .then(res => {
-        responseClone = res.clone(); // 2
+        console.log("-------------------------") // 2
         res.json();
+        console.log("Able to parse json maybe")
+        console.log(res.json())
     })
       //.then(data => {console.log("----------------------");console.log(data);setQuizs(data);})
-  }, function (rejectionReason) { // 3
-    console.log('Error parsing JSON from response:', rejectionReason, responseClone); // 4
-    responseClone.text() // 5
-    .then(function (bodyText) {
-        console.log('Received the following instead of valid JSON:', bodyText); // 6
-    });});
+  }, []);
 
   // Set a Single Question
-  useEffect(() => {
-    if (quizs.length > questionIndex) {
-      setQuesion(quizs[questionIndex]);
-    }
-  }, [quizs, questionIndex])
+  // useEffect(() => {
+  //   if (quizs.length > questionIndex) {
+  //     setQuesion(quizs[questionIndex]);
+  //   }
+  // }, [quizs, questionIndex])
 
   // Start Quiz
   const startQuiz = (e) => {
