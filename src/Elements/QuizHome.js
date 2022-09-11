@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import Start from './Start';
 import Quiz from './Quiz';
 import Result from './Result';
+import quizdata from './quizdata'
 
 
 const QuizHome = () => {
@@ -105,24 +106,26 @@ const QuizHome = () => {
 
   // Load JSON Data
   useEffect(() => {
-    fetch('/quiz')
-      .then(res => {
-        console.log("-------------------------") // 2
-        const r1 = res
-        const r = res.json();
-        console.log("Able to parse json maybe")
-        console.log(r)
-        console.log(r1)
-    })
+    console.log(quizdata)
+    setQuizs(quizdata)
+    // fetch('/quiz')
+    //   .then(res => {
+    //     console.log("-------------------------") // 2
+    //     const r1 = res
+    //     const r = res.json();
+    //     console.log("Able to parse json maybe")
+    //     console.log(r)
+    //     console.log(r1)
+    // })
       //.then(data => {console.log("----------------------");console.log(data);setQuizs(data);})
   }, []);
 
   // Set a Single Question
-  // useEffect(() => {
-  //   if (quizs.length > questionIndex) {
-  //     setQuesion(quizs[questionIndex]);
-  //   }
-  // }, [quizs, questionIndex])
+  useEffect(() => {
+    if (quizs.length > questionIndex) {
+      setQuesion(quizs[questionIndex]);
+    }
+  }, [quizs, questionIndex])
 
   // Start Quiz
   const startQuiz = (e) => {
