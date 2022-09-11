@@ -112,7 +112,7 @@ const QuizHome = () => {
         responseClone = res.clone(); // 2
         res.json();
     })
-      .then(data => {console.log("----------------------");console.log(data);setQuizs(data);})
+      //.then(data => {console.log("----------------------");console.log(data);setQuizs(data);})
   }, function (rejectionReason) { // 3
     console.log('Error parsing JSON from response:', rejectionReason, responseClone); // 4
     responseClone.text() // 5
